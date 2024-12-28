@@ -225,7 +225,7 @@ def plot_player_similarity(player_data,  player_name, title_suffix=""):
   font_prop = fm.FontProperties(fname=font_path, size=12)
 
   # Use dark background style
-  plt.style.use('dark background')
+  plt.style.use('dark_background')
 
   # Sort players by similarity score (descending)
   player_data_sorted = player_data.sort_values(by='Similarity Score', ascending=False)
