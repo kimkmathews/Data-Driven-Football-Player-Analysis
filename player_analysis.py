@@ -91,35 +91,24 @@ import matplotlib
 
 def plot_player_percentiles(player_name, team_name, competition, player_data_rank, top_15_params,figsize=(8, 8.5)):
   import matplotlib.colors as mcolors
-#  plt.style.use('bmh')
-#  cmap = matplotlib.colormaps['rainbow']
-#  slice_colors = cmap(np.linspace(0, 1, len(top_15_params))) 
-#  text_colors = ["#000000"] * 15
+  plt.style.use('bmh')
+  cmap = matplotlib.colormaps['jet']
+  slice_colors = cmap(np.linspace(0, 1, len(top_15_params))) 
+  text_colors = ["#000000"] * 15
   
   split_params = [param.replace('_', '\n') for param in top_15_params]
 
   # Create the pizza plot object
-#  baker = PyPizza(
-#      params = split_params,
-#      background_color="#F0F0F0",
-#      straight_line_color="#EBEBE9",
-#      straight_line_lw=1,
-#      last_circle_lw=0,
-#      other_circle_lw=0,
-#      inner_circle_size=20
-#  )
-  slice_colors = ["#1A78CF"] * 5 + ["#FF9300"] * 5 + ["#D70232"] * 5
-  text_colors = ["#000000"] * 10 + ["#F2F2F2"] * 5
-
-  baker = PyPizza(  
-  params=split_params, # list of parameters
- background_color="#EBEBE9", # background color
- straight_line_color="#EBEBE9", # color for straight lines
- straight_line_lw=1, # linewidth for straight lines
- last_circle_lw=0, # linewidth of last circle
- other_circle_lw=0, # linewidth for other circles
- inner_circle_size=20 # size of inner circle
- ) 
+  baker = PyPizza(
+      params = split_params,
+      background_color="#F0F0F0",
+      straight_line_color="#EBEBE9",
+      straight_line_lw=1,
+      last_circle_lw=0,
+      other_circle_lw=0,
+      inner_circle_size=20
+  )
+   
   player_data_rank = player_data_rank[['Parameters','Percentile Rank']]
   transposed_df = player_data_rank.set_index('Parameters').T
   transposed_df = transposed_df[top_15_params]

@@ -107,6 +107,7 @@ def main():
     st.pyplot(fig)
     
     similar_players,transformed_df,top_similar_players_indices = pa.find_similar_players(player_name, player_2024)
+    st.write(similar_players)
     fig = pa.plot_player_similarity(similar_players, player_name, title_suffix="")
     st.pyplot(fig)
 
