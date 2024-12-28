@@ -97,7 +97,7 @@ def plot_player_percentiles(player_name, team_name, competition, player_data_ran
   text_colors = ["#000000"] * 15
   
   split_params = [param.replace('_', '\n') for param in top_15_params]
-
+  plt.style.use('classic')
   # Create the pizza plot object
   baker = PyPizza(
       params = split_params,
